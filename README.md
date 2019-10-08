@@ -1,1 +1,0 @@
-kashima_SmartEqui
