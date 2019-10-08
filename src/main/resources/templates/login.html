@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" media="all" th:href="@{/css/style.css}" />
+<title>LoginPage</title>
+</head>
+<body>
+	<div class="section">
+		<h2 class="header">ログイン画面</h2>
+		<form th:action="@{/login}"  method="post" class="container">
+			<div th:if="${param.error}" style="color: red">ユーザー名かパスワードが違います</div>
+			<div th:if="${param.logout}" style="color: red">ログアウトしました</div>
+ 			<div>
+				<label>ユーザー名： </label> <input type="text" name="username"
+					placeholder="Username" />
+			</div>
+			<div>
+				<label>パスワード： </label> <input type="password" name="password"
+					placeholder="Password" />
+			</div>
+ 			<div>
+				<label>数字を計算してください： </label> <span
+					th:text="${question}"></span>
+					<input type="number" name="answer" placeholder="Answer" />
+			</div>
+			<br>
+			<div>
+				<input type="submit" value="ログイン" />
+			</div>
+			<input type="hidden" name="totalRandomNumber" th:value="${totalRandomNumber}"/>
+		</form>
+	</div>
+</body>
+</html>
